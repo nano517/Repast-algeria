@@ -1,0 +1,13 @@
+{
+  "name": "RE:PAST Algeria",
+  "version": "0.3.0",
+  "type": "static-web",
+  "entry": "index.html",
+  "features": [
+    "Algeria map",
+    "Timgad 3D",
+    "Present/Reconstruction/Past",
+    "Journal",
+    "Mobile controls"
+  ]
+}

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#0b0f10">
+  <meta name="description" content="RE:PAST Algeria — an interactive 3D journey through Algerian history.">
+  <title>RE:PAST Algeria</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="app">
+    <canvas id="scene"></canvas>
+
+    <section id="landing" class="screen active">
+      <div class="grain"></div>
+      <header class="topbar">
+        <div class="brand">RE:PAST <span>ALGERIA</span></div>
+        <button id="journalBtn" class="icon-btn" aria-label="Open journal">◈</button>
+      </header>
+
+      <div class="hero-copy">
+        <p class="eyebrow">AN INTERACTIVE HISTORY ATLAS</p>
+        <h1>Walk through<br><em>Algeria's past.</em></h1>
+        <p class="lede">Explore places, recover lost details and move between the ruins of today and the city that once stood here.</p>
+      </div>
+
+      <div class="map-wrap">
+        <div class="map-label">ALGERIA · HISTORICAL SITES</div>
+        <div id="algeriaMap" class="algeria-map" role="button" tabindex="0" aria-label="Timgad historical site"></div>
+        <button id="timgadPin" class="site-pin" style="left:72%;top:57%" aria-label="Open Timgad">
+          <span class="pin-pulse"></span><span class="pin-dot"></span>
+          <span class="pin-card"><b>TIMGAD</b><small>BATNA · ROMAN CITY</small><i>ENTER SITE →</i></span>
+        </button>
+      </div>
+
+      <div class="bottom-note">
+        <span>01</span>
+        <span>THE FIRST SITE</span>
+        <span class="line"></span>
+        <span>100 AD → TODAY</span>
+      </div>
+    </section>
+
+    <section id="siteIntro" class="screen">
+      <div class="intro-shade"></div>
+      <div class="intro-content">
+        <p class="eyebrow">BATNA · ALGERIA</p>
+        <h2>TIMGAD</h2>
+        <p>The Roman grid emerges from the ruins. Step inside and reconstruct the city layer by layer.</p>
+        <button id="enterTimgad" class="primary-btn">ENTER HISTORY <span>→</span></button>
+        <button id="backMap" class="text-btn">← BACK TO MAP</button>
+      </div>
+    </section>
+
+    <section id="hud" class="hud hidden">
+      <div class="hud-top">
+        <button id="exitSite" class="hud-btn">← <span>MAP</span></button>
+        <div class="location-title"><b>TIMGAD</b><small>BATNA · ALGERIA</small></div>
+        <button id="journalHudBtn" class="hud-btn">◈ <span>JOURNAL</span></button>
+      </div>
+
+      <div class="era-switcher">
+        <button data-era="present" class="era active">PRESENT</button>
+        <button data-era="reconstruction" class="era">RECONSTRUCTION</button>
+        <button data-era="past" class="era">PAST</button>
+      </div>
+
+      <div id="artifactHint" class="artifact-hint hidden"></div>
+
+      <div id="infoPanel" class="info-panel hidden">
+        <button id="closeInfo" class="close-info">×</button>
+        <p class="eyebrow" id="infoType">DISCOVERY</p>
+        <h3 id="infoTitle">Artifact</h3>
+        <p id="infoText"></p>
+        <button id="discoverBtn" class="primary-btn small">ADD TO JOURNAL</button>
+      </div>
+
+      <div class="hud-bottom">
+        <div class="timeline">
+          <div class="timeline-label"><span id="eraLabel">PRESENT</span><span id="eraYear">TODAY</span></div>
+          <input id="timeSlider" type="range" min="0" max="100" value="0">
+          <div class="timeline-years"><span>TODAY</span><span>100 AD</span></div>
+        </div>
+        <div class="controls-hint">DRAG TO LOOK · WALK WITH THE JOYSTICK</div>
+      </div>
+
+      <div id="joystick" class="joystick"><div class="stick"></div></div>
+    </section>
+
+    <aside id="journal" class="journal">
+      <div class="journal-head">
+        <div><p class="eyebrow">FIELD NOTES</p><h2>JOURNAL</h2></div>
+        <button id="closeJournal" class="close-info">×</button>
+      </div>
+      <div class="journal-progress"><span id="discoverCount">0</span> / <span id="discoverTotal">4</span> DISCOVERED</div>
+      <div id="journalList" class="journal-list"></div>
+    </aside>
+
+    <div id="toast" class="toast"></div>
+    <div id="loading" class="loading"><div class="loader"></div><span>RESTORING THE SITE…</span></div>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
